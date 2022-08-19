@@ -17,19 +17,7 @@ const init = async (link) => {
             `;
         contentEl.insertAdjacentHTML('beforeend', htmlCode);
     };
-    loader.style.display = "none";
+    loader.remove();
 }
 
 init('./json');
-
-/*
-<div class="good">
-    <a href="./goods/${i}">
-        <img class="good_img" src="../img/goods/${dataToView[i].title.toLowerCase()}.jpg" alt="">
-        <p class="good_name">${dataToView[i].title}</p>
-        <!--<p class="good_price">Цена: 1.2</p>-->
-    </a>
-</div>
-
-<p><a href="./goods/${i} ">${dataToView[i].title}</a></p>
-*/
