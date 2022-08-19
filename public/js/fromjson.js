@@ -1,13 +1,35 @@
 const contentEl = document.querySelector('.content');
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.preloader');
 
 const init = async (link) => {
     const result = await axios.get(link);
     const dataToView = result.data;
+
     for(let i=0; i<dataToView.length;i++) {
-        contentEl.insertAdjacentHTML('beforeend', `<p><a href="./goods/${i} ">${dataToView[i].title}</a></p>`);
+        const htmlCode = `
+        <div class="good">
+            <a href="./goods/${i}">
+                <img class="good_img" src="../img/goods/${dataToView[i].title.toLowerCase()}.jpg" alt="">
+                <p class="good_name">${dataToView[i].title}</p>
+                <p class="good_price">Цена: ${dataToView[i].price}</p>
+            </a>
+        </div>  
+            `;
+        contentEl.insertAdjacentHTML('beforeend', htmlCode);
     };
     loader.style.display = "none";
 }
 
 init('./json');
+
+/*
+<div class="good">
+    <a href="./goods/${i}">
+        <img class="good_img" src="../img/goods/${dataToView[i].title.toLowerCase()}.jpg" alt="">
+        <p class="good_name">${dataToView[i].title}</p>
+        <!--<p class="good_price">Цена: 1.2</p>-->
+    </a>
+</div>
+
+<p><a href="./goods/${i} ">${dataToView[i].title}</a></p>
+*/

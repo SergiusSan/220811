@@ -36,6 +36,11 @@ server.set('views','./views');
 server.use(express.static('./public'));
 
 server.get('/', (req, res) => {
+    const links = '<p>Список <a href="./main">товарів</a></p><p>Версія <a href="./fromjson">з ajax</a></p>';
+    res.send(links);
+});
+
+server.get('/main', (req, res) => {
     res.render('main', {db});
 });
 

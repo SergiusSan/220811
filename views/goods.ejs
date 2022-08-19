@@ -5,14 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=db[id].title %></title>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-    <h1><%=db[id].title %></h1>
-    <img src="../img/goods/<%=db[id].title.toLowerCase() %>.jpg" alt=""> 
-    <p><%=db[id].desc %></p>
-    <p>Цена: <%=db[id].price %> грн</p>
-    <h6>Дополнительная информация</h6>
-    <a href="<%=db[id].info %>"><%=db[id].info %></a>
+    <h1 class="good_head"><%=db[id].title %></h1>
+    <div class="container">
+        <div class="left">
+            <img src="../img/goods/<%=db[id].title.toLowerCase() %>.jpg" alt=""> 
+        </div>
+        <div class="right">
+            <p><%=db[id].desc %></p>
+            <p>Цена: <%=db[id].price %> грн</p>
+            <h6>Дополнительная информация</h6>
+            <a href="<%=db[id].info %>"><%=db[id].info %></a>
+        </div>
+    </div>
+   
+    
 
 
 
